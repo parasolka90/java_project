@@ -6,7 +6,7 @@ public class TestingMain {
     public static void main(String[] args) {
         Calculator calculate = new Calculator();
         int addingResult =calculate.add(2,2);
-        int subtractingResult =calculate.substract(2,2);
+        int subtractingResult =calculate.subtract(2,2);
 
 
         if(addingResult == 4){
