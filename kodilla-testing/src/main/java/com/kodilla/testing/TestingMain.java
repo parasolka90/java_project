@@ -1,19 +1,16 @@
 package com.kodilla.testing;
 
-import com.kodilla.testing.calculator.Calculator;
-import com.kodilla.testing.collection.OddNumbersExterminator;
+import com.kodilla.testing.shape.Circle;
+import com.kodilla.testing.shape.ShapeCollector;
+import com.kodilla.testing.shape.Triangle;
 
-import java.util.ArrayList;
 
 public class TestingMain {
-    public static void main(String[]args) {
-        ArrayList<Integer> number = new ArrayList<>();
-        OddNumbersExterminator num = new OddNumbersExterminator();
-        number.add(4);
-        number.add(5);
-        number.add(7);
-        number.add(8);
-        number.add(3);
-        System.out.println(num.exterminate(number));
+    public static void main(String[] args) {
+        ShapeCollector shape = new ShapeCollector();
+        shape.addFigure(new Circle(6));
+        shape.addFigure(new Triangle(4, 8));
+
+        shape.showFigures();
     }
 }
