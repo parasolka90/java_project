@@ -1,4 +1,4 @@
-package kodilla.good.patterns.challanges;
+package kodilla.good.patterns.challanges0;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,9 +29,4 @@ class MovieStore {
         return booksTitlesWithTranslations;
     }
 }
-class StreamMain{
-    public static void main(String[]args){
-        MovieStore movieStore = new MovieStore();
-        movieStore.getMovies().forEach((s,l)->l.forEach(e->System.out.print(e+"!")));
-    }
-}
+
