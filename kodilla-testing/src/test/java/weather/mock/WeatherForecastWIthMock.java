@@ -1,6 +1,6 @@
 package weather.mock;
-import com.kodilla.testing.weather.stub.Temperatures;
-import com.kodilla.testing.weather.stub.WeatherForecast;
+import com.kodilla.spring.testing.weather.stub.Temperatures;
+import com.kodilla.spring.testing.weather.stub.WeatherForecast;
 import org.junit.*;
 
 import java.util.HashMap;
