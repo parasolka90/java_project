@@ -1,9 +1,5 @@
 package com.kodilla.spring.shape;
 
-import com.kodilla.spring.Application;
-import com.kodilla.spring.shape.Circle;
-import com.kodilla.spring.shape.Shape;
-import com.kodilla.spring.shape.Triangle;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 @RunWith(SpringRunner.class)
-public class SpringRunnerTestSuite {
+public class ApplicationTestSuite {
     @Test
     public void testCircleLoadedIntoContainer() {
         //Given
