@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveCompaniesName",
+        name = "Company.retrieveCompaniesStartWith",
         query = "SELECT * FROM companies WHERE" +
-                " (SUBSTRING(company_name, 1, 3) REGEXP :NAME)=1;",
+                " (SUBSTRING(company_name, 1, 3) REGEXP :SUBST)=1;",
         resultClass = Company.class
 )
 @Entity

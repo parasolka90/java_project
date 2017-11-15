@@ -1,14 +1,18 @@
 package com.kodilla.hibernate.manytomany;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+        import com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade;
+        import org.junit.Assert;
+        import org.junit.Before;
+        import org.junit.Test;
+        import org.junit.runner.RunWith;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.boot.test.context.SpringBootTest;
+        import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
+        import java.util.List;
+
+        import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.COMPANY;
+        import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.EMPLOYEE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,6 +22,9 @@ public class CompanyDaoTestSuite {
     CompanyDao companyDao;
     @Autowired
     EmployeeDao employeeDao;
+
+    @Autowired
+    private CompanyFacade facade;
 
     Employee johnSmith;
     Employee stephanieClarckson;
@@ -38,13 +45,15 @@ public class CompanyDaoTestSuite {
         dataMaesters = new Company("Data Maesters");
         greyMatter = new Company("Grey Matter");
 
-        softwareMachine.getEmployees().add(stephanieClarckson);
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
         dataMaesters.getEmployees().add(lindaKovalsky);
         greyMatter.getEmployees().add(johnSmith);
         greyMatter.getEmployees().add(lindaKovalsky);
 
-        stephanieClarckson.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(softwareMachine);
         johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
     }
@@ -92,7 +101,7 @@ public class CompanyDaoTestSuite {
 
         //Then
         Assert.assertEquals(testName, resultList.get(0).getLastname());
-        Assert.assertEquals(1, resultList.size());
+        Assert.assertEquals(3, resultList.size());
 
         //CleanUp
         try {
@@ -100,7 +109,7 @@ public class CompanyDaoTestSuite {
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
         } catch (Exception e) {
-            System.out.println("not found");
+            System.out.println("records not found");
         }
     }
 
@@ -116,12 +125,12 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> resultList1 = companyDao.retrieveCompaniesName("Sof");
-        List<Company> resultList2 = companyDao.retrieveCompaniesName("dat");
+        List<Company> resultList1 = companyDao.retrieveCompaniesStartWith("Sof");
+        List<Company> resultList2 = companyDao.retrieveCompaniesStartWith("rey");
 
         //Then
         Assert.assertEquals(softwareMachine.getName(), resultList1.get(0).getName());
-        Assert.assertFalse(resultList2.isEmpty());
+        Assert.assertTrue(resultList2.isEmpty());
 
         //CleanUp
         try {
@@ -129,7 +138,22 @@ public class CompanyDaoTestSuite {
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
         } catch (Exception e) {
-            System.out.println("not found");
+            System.out.println("records not found");
+        }
+    }
+
+    @Test
+    public void testCompanyFacade() {
+        //Given & When
+        List<String> companies = facade.findByName(COMPANY,"Soft");
+        List<String> employees = facade.findByName(EMPLOYEE,"Smit");
+
+        //Then
+        for (String entry : companies) {
+            Assert.assertEquals("Software Machine", entry);
+        }
+        for (String entry : employees) {
+            Assert.assertEquals("John Smith", entry);
         }
     }
 }
