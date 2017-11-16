@@ -1,4 +1,4 @@
-package com.kodilla.patterns2.pizza;
+package com.kodilla.patterns2.decorator.pizza;
 
 import java.math.BigDecimal;
 

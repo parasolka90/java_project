@@ -1,9 +1,9 @@
 package com.kodilla.patterns2.decorator;
 
-import com.kodilla.patterns2.pizza.AddMozzarellaDecorator;
-import com.kodilla.patterns2.pizza.AddProsciuttoDecorator;
-import com.kodilla.patterns2.pizza.BasicPizzaOrder;
-import com.kodilla.patterns2.pizza.PizzaOrder;
+import com.kodilla.patterns2.decorator.pizza.AddMozzarellaDecorator;
+import com.kodilla.patterns2.decorator.pizza.AddProsciuttoDecorator;
+import com.kodilla.patterns2.decorator.pizza.BasicPizzaOrder;
+import com.kodilla.patterns2.decorator.pizza.PizzaOrder;
 import org.junit.Assert;
 import org.junit.Test;
 
