@@ -32,7 +32,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testDoubleCheesePizzaWithOnionGetCost() {
+    public void testPizzaMozzarellaAndProsciutto() {
         //Given
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
         pizzaOrder = new AddProsciuttoDecorator(pizzaOrder);
@@ -44,7 +44,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testPizzaWithDoubleCheeseAndPepperoniGetDescription() {
+    public void testPizzaWithMozzarellaAndProsciuttoDescription() {
         //Given
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
         pizzaOrder = new AddMozzarellaDecorator(pizzaOrder);
@@ -52,18 +52,7 @@ public class PizzaOrderTestSuite {
         //When
         String description = pizzaOrder.getDescription();
         //Then
-        Assert.assertEquals("Order a pizza with buffalo mozzarella and prosciutto crudo", description);
+        Assert.assertEquals("Order a pizza with buffalo mozzarella and prosciutto cotto", description);
     }
 
-    @Test
-    public void testPizzaWithPepperoniAndDoubleCheeseGetDescription() {
-        //Given
-        PizzaOrder pizzaOrder = new BasicPizzaOrder();
-        pizzaOrder = new AddProsciuttoDecorator(pizzaOrder);
-        pizzaOrder = new AddMozzarellaDecorator(pizzaOrder);
-        //When
-        String description = pizzaOrder.getDescription();
-        //Then
-        Assert.assertEquals("Order a pizza with prosciutto crudo and buffalo mozzarella", description);
-    }
 }

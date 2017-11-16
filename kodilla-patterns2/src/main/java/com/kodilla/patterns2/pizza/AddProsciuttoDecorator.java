@@ -9,12 +9,12 @@ public class AddProsciuttoDecorator extends AbstractPizzaOrderDecorator {
 
     @Override
     public BigDecimal getCost() {
-        return super.getCost().add(new BigDecimal(3));
+        return super.getCost().add(new BigDecimal(5));
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " prosciutto crudo";
+        return super.getDescription() + " prosciutto cotto";
     }
 
 
