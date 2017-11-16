@@ -1,18 +1,18 @@
 package com.kodilla.hibernate.manytomany;
 
-        import com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade;
-        import org.junit.Assert;
-        import org.junit.Before;
-        import org.junit.Test;
-        import org.junit.runner.RunWith;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.test.context.junit4.SpringRunner;
+import com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-        import java.util.List;
+import java.util.List;
 
-        import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.COMPANY;
-        import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.EMPLOYEE;
+import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.COMPANY;
+import static com.kodilla.hibernate.manytomany.manytomany.facade.CompanyFacade.MyDataType.EMPLOYEE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
