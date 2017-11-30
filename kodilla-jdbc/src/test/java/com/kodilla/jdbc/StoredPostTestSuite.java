@@ -29,4 +29,5 @@ public class StoredPostTestSuite {
         }
         Assert.assertEquals("Man's Fate", result);
     }
+
 }
