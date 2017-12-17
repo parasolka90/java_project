@@ -23,32 +23,32 @@ public class FacebookTestingApp {
 
         while (!driver.findElement(By.xpath(FIRSTNAME)).isDisplayed());
         WebElement firstName = driver.findElement(By.xpath(FIRSTNAME));
-        firstName.sendKeys("fbPizzaName");
+        firstName.sendKeys("Jon");
 
         WebElement lastName = driver.findElement(By.xpath(LASTNAME));
-        lastName.sendKeys("fbPizzaSurname");
+        lastName.sendKeys("Snow");
 
         WebElement email1 = driver.findElement(By.xpath(EMAIL1));
-        email1.sendKeys("pizzaMail1FB@gmail.com");
+        email1.sendKeys("pizzaMail1ff3FB@gmail.com");
 
         while (!driver.findElement(By.xpath(EMAIL2)).isDisplayed());
         WebElement email2 = driver.findElement(By.xpath(EMAIL2));
-        email2.sendKeys("pizzaMail1FB@gmail.com");
+        email2.sendKeys("pizzaMail1ff3FB@gmail.com");
 
         WebElement password = driver.findElement(By.xpath(PASSWORD));
         password.sendKeys("FbPizzaP4ssword");
 
         WebElement selectMonthEl = driver.findElement(By.xpath(SELECT_MONTH));
         Select selectMonth = new Select(selectMonthEl);
-        selectMonth.selectByIndex(12);
+        selectMonth.selectByIndex(3);
 
         WebElement selectDayEl = driver.findElement(By.xpath(SELECT_DAY));
         Select selectDay = new Select(selectDayEl);
-        selectDay.selectByIndex(12);
+        selectDay.selectByIndex(3);
 
         WebElement selectYearEl = driver.findElement(By.xpath(SELECT_YEAR));
         Select selectYear = new Select(selectYearEl);
-        selectYear.selectByIndex(1992);
+        selectYear.selectByValue("1998");
 
         WebElement radioButton = driver.findElement(By.xpath(RADIO));
         radioButton.click();
