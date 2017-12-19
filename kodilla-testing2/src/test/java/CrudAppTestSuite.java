@@ -10,15 +10,15 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.assertTrue;
 
 public class CrudAppTestSuite {
-    private static final String BASE_URL = "https://parasolka90.github.io/";
+    private static final String URL = "https://parasolka90.github.io/";
     private WebDriver driver;
-    private Random generator;
+    private Random random;
 
     @Before
     public void beforeTests() {
         driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
-        driver.get(BASE_URL);
-        generator = new Random();
+        driver.get(URL);
+        random = new Random();
     }
 
     @After
@@ -31,7 +31,7 @@ public class CrudAppTestSuite {
         final String XPATH_TASK_CONTENT = "//form[contains(@action, \"tasks\")]/fieldset[2]/textarea";
         final String XPATH_ADD_BUTTON = "//form[contains(@action, \"tasks\")]/fieldset[3]/button";
 
-        String taskName = "Task number " + generator.nextInt(100000);
+        String taskName = "Task number " + random.nextInt(100000);
         String taskContent = taskName + " content";
 
         WebElement name = driver.findElement(By.xpath(XPATH_TASK_NAME));
